@@ -71,3 +71,23 @@ VALUES
 ('mazda', 'miata', 2000, 10000, "Jeremy drives this to school each day, and drifts around the Micky D's drive through.", 'https://images.unsplash.com/photo-1552615526-40e47a79f9d7?q=80&w=2176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '#ffff00');
 
 SELECT * FROM cars WHERE id = LAST_INSERT_ID();
+
+CREATE TABLE houses(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sqft INT NOT NULL,
+  bedrooms INT NOT NULL,
+  bathrooms DOUBLE NOT NULL,
+  imgUrl VARCHAR(500) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  price INT NOT NULL,
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
+updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
+) default charset utf8 COMMENT '';
+
+INSERT INTO houses
+(sqft, bedrooms, bathrooms, imgUrl, description, price)
+VALUES
+-- (200, 1, 0, 'https://outlookmoney.com/public/uploads/story/544f82520cfdcf50f1d9132f05db2e1a.jpg', "home home in palm", 20);
+(100, 2, 2.5, 'https://i.redd.it/dmpjjktw40151.jpg', "pineabble unda da sea", 3000);
+
+SELECT * FROM houses WHERE id = LAST_INSERT_ID();
